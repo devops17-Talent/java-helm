@@ -4,7 +4,7 @@ metadata:
   name: {{ include "spring-helm.fullname" . }}
   labels:
     {{- include "spring-helm.labels" . | nindent 4 }}
-  namespace: {{ .Values.namespace }}
+    #namespace: {{ .Values.namespace }}
 spec:
   type: {{ .Values.service.type }}
   ports:
