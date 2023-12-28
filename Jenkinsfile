@@ -14,7 +14,7 @@ pipeline{
          '''
     }
     }*/
-  stage('deploy mariadb'){
+  stage('deploy java'){
     steps{
     sh 'helm upgrade --install javaspring $WORKSPACE --values $WORKSPACE/values.yaml --namespace devops-java '
     }
