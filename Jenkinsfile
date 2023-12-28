@@ -6,7 +6,12 @@ pipeline{
       sh 'kubectl config use-context arn:aws:eks:us-west-2:897276212041:cluster/devops-eks-gCFGYxzJ'
       }
   }
-    stage('create db namespace'){
+    stage('clean workspace'){
+       steps{
+        cleanWs()
+        }
+      }
+    stage('create java namespace'){
       steps{
     sh '''
         myNamespace="devops-java"
