@@ -7,7 +7,7 @@ namespace: devops-java
 
 image:
   repository: malleshdevops/devopseks17
-  pullPolicy: always
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "java-v1"
 
