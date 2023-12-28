@@ -42,23 +42,22 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /
+            tcpSocket:
               port: http
           readinessProbe:
-            httpGet:
-              path: /
+            tcpSocket:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
+
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-      {{- with .Values.volumes }}
+          - mountPath: /application.properties
+            name: spring-config
+            subPath: application.properties
       volumes:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+      - name: spring-config
+          configMap:
+            name: {{ .Release.Name }}-configmap
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
