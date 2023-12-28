@@ -4,5 +4,4 @@ data:
 kind: Secret
 metadata:
   name: dockerhub-cred
-  namespace: {{ .Values.namespace }}
 type: kubernetes.io/dockerconfigjson
