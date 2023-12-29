@@ -52,13 +52,13 @@ ingress:
     service.beta.kubernetes.io/aws-load-balancer-type: "alb"
     alb.ingress.kubernetes.io/scheme: "internet-facing"
     alb.ingress.kubernetes.io/target-type: "instance"
-    alb.ingress.kubernetes.io/listen-ports:  '[{"HTTP": 80}]'
+    alb.ingress.kubernetes.io/listen-ports:  '[{"HTTP": 8080}]'
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: javaapp.smxgroups.com
       paths:
-        - path: /
+        - path: /api/v1
           pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
